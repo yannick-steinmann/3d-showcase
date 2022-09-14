@@ -21,10 +21,10 @@ export default class Renderer {
         // probably optional render settings
         this.renderer.physicallyCorrectLights = true;
         this.renderer.outputEncoding = THREE.sRGBEncoding;
-        this.renderer.toneMapping = THREE.CineonToneMapping;
-        this.renderer.toneMappingExposure = 1.75;
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFShadowMap;
+        this.renderer.toneMapping = THREE.ReinhardToneMapping;
+        //this.renderer.toneMappingExposure = 1.75;
+        //this.renderer.shadowMap.enabled = true;
+        //this.renderer.shadowMap.type = THREE.PCFShadowMap;
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
     }

@@ -43,8 +43,9 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 });
-                this.firstMoveTimeline.to(this.room.position, {
-                    x: () => {
+                this.firstMoveTimeline.fromTo(this.room.position,
+                    {x: 0, y: 0, z: 0},
+                    {x: () => {
                         return this.sizes.width * 0.0065;
                     },
                 });

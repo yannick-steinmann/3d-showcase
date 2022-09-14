@@ -11,9 +11,17 @@ html, body{
   color: var(--color-text);
 }
 
-:root {
+/* :root {
   --color-text: #333332;
   --color-background: #FAF4E5;
+  --color-primary: #9CDE4E;
+  --color-secondary: #E5A1AA;
+  --color-tertiary: #8395CD;
+} */
+
+:root {
+  --color-text: #E8E8E8;
+  --color-background: #191919;
   --color-primary: #9CDE4E;
   --color-secondary: #E5A1AA;
   --color-tertiary: #8395CD;
