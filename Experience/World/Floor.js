@@ -12,7 +12,11 @@ export default class Floor {
  
     setFloor(){
         this.geometry = new THREE.PlaneGeometry(100,100);
-        this.material = new THREE.MeshStandardMaterial({
+        // this.material = new THREE.MeshStandardMaterial({
+        //     color: 0x000000,
+        //     side: THREE.DoubleSide,
+        // });
+        this.material = new THREE.MeshBasicMaterial({
             color: 0x000000,
             side: THREE.DoubleSide,
         });
@@ -20,15 +24,14 @@ export default class Floor {
         this.scene.add(this.plane);
         this.plane.rotation.x = Math.PI / 2;
         this.plane.position.y = -2;
-        this.plane.receiveShadow = true;
     }
 
     setCircle() {
         const geometry = new THREE.CircleGeometry(5, 64);
-        //const material = new THREE.MeshBasicMaterial({ color: 0x9CDE4E});
-        const material = new THREE.MeshStandardMaterial({ color: 0x2B3E15});
-        const material2 = new THREE.MeshStandardMaterial({ color: 0xE5A1AA});
-        const material3 = new THREE.MeshStandardMaterial({ color: 0x8395CD});
+        const material = new THREE.MeshBasicMaterial({ color: 0x58980E});
+        //const material = new THREE.MeshStandardMaterial({ color: 0x2B3E15});
+        const material2 = new THREE.MeshStandardMaterial({ color: 0xA7182B});
+        const material3 = new THREE.MeshStandardMaterial({ color: 0x2A469B});
 
         this.circleFirst = new THREE.Mesh(geometry, material);
         this.circleSecond = new THREE.Mesh(geometry, material2);

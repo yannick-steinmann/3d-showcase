@@ -7,7 +7,7 @@ export default class Renderer {
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
-        this.camera = this.experience.camera
+        this.camera = this.experience.camera;
 
         this.setRenderer();
     }
@@ -19,9 +19,9 @@ export default class Renderer {
         });
         
         // probably optional render settings
-        this.renderer.physicallyCorrectLights = true;
+        //this.renderer.physicallyCorrectLights = true;
         this.renderer.outputEncoding = THREE.sRGBEncoding;
-        this.renderer.toneMapping = THREE.ReinhardToneMapping;
+        //this.renderer.toneMapping = THREE.ReinhardToneMapping;
         //this.renderer.toneMappingExposure = 1.75;
         //this.renderer.shadowMap.enabled = true;
         //this.renderer.shadowMap.type = THREE.PCFShadowMap;

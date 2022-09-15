@@ -106,9 +106,6 @@ html, body{
   transform: scaleY(1);
 }
 
-
-
-
 .section-intro-wrapper {
   position: relative;
   padding: 20% 5%;
@@ -195,37 +192,106 @@ html, body{
   height: 100vh;
 }
 
-.hero-wrapper {
+.hero0-wrapper {
   position: relative;
   height: 100%;
-  width: calc(100% - 160px);
+  width: 700px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.image-wrapper {
+  display: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+img {
+  position: absolute;
+}
+
+.floatingObjects {
+}
+
+#head {
+  width: 70%;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* top: 120px; */
+}
+
+@keyframes float {
+  from {bottom: 28%;}
+  to {bottom: 32%;}
+}
+
+#floatingObject1 {
+  width: 30%;
+  position: absolute;
+  bottom: 28%;
+  left: 0px;
+  animation-name: float;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+#floatingObject2 {
+  width: 20%;
+  position: absolute;
+  bottom: 28%;
+  right: 0px;
+  animation-name: float;
+  animation-duration: 4.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+.hero0-main {
+  position: absolute;
+  top: 120px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero0-main-title {
+  font-size: 76px;
+}
+
+.hero0-main-description {
+  font-size: 28px;
+}
+
+/* Original Hero ---------------*/
+
+.hero-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 600px;
   margin: 0 auto;
   max-width: 1100px;
 }
 
 .hero-main {
   position: absolute;
-  bottom: 160px;
+  top: 120px;
   left: 0;
-}
-
-.hero-second {
-  position: absolute;
-  top: calc(50% - 120px);
-  right: 0;
+  right:0;
+  margin: auto;
+  text-align: center;
 }
 
 .hero-main-title {
-  font-size: 64px;
-}
-
-.hero-main-description {
-  font-size: 18px;
-}
-
-.hero-second-subheading {
-  font-size: 32px;
-  text-transform: uppercase;
+  font-size: 48px;
 }
 
 /* Other colors override --------------------------------*/

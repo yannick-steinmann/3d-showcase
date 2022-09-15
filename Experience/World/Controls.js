@@ -29,9 +29,27 @@ export default class Controls {
             // Desktop
             "(min-width: 969px)": ()=> {
                 
+                console.log(this.camera.orthographicCamera.position);
+                console.log(this.room.position);
+
                 // Resets
                 this.room.scale.set(1,1,1);
                 this.room.position.set(0,0,0);
+
+                // Zero section move
+                this.zeroMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".zero-move",
+                        start: "top top",
+                        end: "bottom 20%",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+                this.zeroMoveTimeline.fromTo(this.camera.orthographicCamera.position,
+                    {x: 0, y: 30, z: 5},
+                    {x: 0, y: 6, z: 5},
+                );
 
                 // First section move
                 this.firstMoveTimeline = new GSAP.timeline({
