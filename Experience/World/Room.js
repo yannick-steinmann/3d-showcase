@@ -10,6 +10,7 @@ export default class Room {
         this.resources = this.experience.resources;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        this.roomChildren = {};
 
         this.lerp = {
             current: 0,
@@ -29,6 +30,10 @@ export default class Room {
         this.textures.roomColor = this.resources.items.roomTexture;
         this.textures.roomColor.flipY = false;
         this.textures.roomColor.encoding = THREE.sRGBEncoding;
+
+        this.textures.cubeColor = this.resources.items.cubeTexture;
+        this.textures.cubeColor.flipY = true;
+
     }
 
 
@@ -36,7 +41,10 @@ export default class Room {
         
         this.material = new THREE.MeshBasicMaterial({
             map: this.textures.roomColor
-        })
+        });
+        this.materialCube = new THREE.MeshBasicMaterial({
+            map: this.textures.cubeColor
+        });
          
     }
  
@@ -48,13 +56,25 @@ export default class Room {
             }
         });
 
+        this.actualRoom.children.forEach((child) => {
+            child.scale.set(0,0,0);
 
-        this.actualRoom.children[5].children[0].material = new THREE.MeshBasicMaterial({
-            map: this.resources.items.screen
-        })
+            if (child.name === "cubeintro") {
+                child.material = this.materialCube;
+                //child.scale.set(1,1,1);
+                child.position.set(0,7,0); // cube is centered in room at position.set(0,4.5,0)
+            }
+
+            if (child.name === "map") {
+                child.children[0].material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen
+                })
+            }
+
+            this.roomChildren[child.name] = child;
+        });
         
         this.actualRoom.rotation.y = - Math.PI / 4;
-        //this.actualRoom.castShadow = true;
 
         this.scene.add(this.actualRoom);
     }

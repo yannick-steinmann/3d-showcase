@@ -13,12 +13,15 @@ export default class Controls {
         this.camera = this.experience.camera;
         this.sizes = this.experience.sizes;
         this.room = this.experience.resources.items.room.scene;
+        this.actualRoom = this.room.scene;
 
         this.circleFirst = this.experience.world.floor.circleFirst;
         this.circleSecond = this.experience.world.floor.circleSecond;
         this.circleThird = this.experience.world.floor.circleThird;
 
         GSAP.registerPlugin(ScrollTrigger);
+
+        document.querySelector(".page").style.overflow = "visible";
 
         this.setScrollTrigger();
     }
@@ -29,27 +32,9 @@ export default class Controls {
             // Desktop
             "(min-width: 969px)": ()=> {
                 
-                console.log(this.camera.orthographicCamera.position);
-                console.log(this.room.position);
-
                 // Resets
                 this.room.scale.set(1,1,1);
                 this.room.position.set(0,0,0);
-
-                // Zero section move
-                this.zeroMoveTimeline = new GSAP.timeline({
-                    scrollTrigger: {
-                        trigger: ".zero-move",
-                        start: "top top",
-                        end: "bottom 20%",
-                        scrub: 0.6,
-                        invalidateOnRefresh: true,
-                    },
-                });
-                this.zeroMoveTimeline.fromTo(this.camera.orthographicCamera.position,
-                    {x: 0, y: 30, z: 5},
-                    {x: 0, y: 6, z: 5},
-                );
 
                 // First section move
                 this.firstMoveTimeline = new GSAP.timeline({
@@ -66,6 +51,7 @@ export default class Controls {
                     {x: () => {
                         return this.sizes.width * 0.0065;
                     },
+                    y: 3,
                 });
 
                  // Second section move
@@ -131,8 +117,8 @@ export default class Controls {
             "(max-width: 968px": ()=> {
                 
                 // Resets
-                this.room.scale.set(0.6,0.6,0.6);
-                this.room.position.set(0,0,0);
+                this.room.scale.set(0.7,0.7,0.7);
+                this.room.position.set(0,2,0);
 
                 // First section move
                 this.firstMoveTimeline = new GSAP.timeline({
@@ -147,7 +133,9 @@ export default class Controls {
                     x: 1,
                     y: 1,
                     z: 1,
-                });
+                }, "same"
+                ).to(this.room.position, {y:6,}, "same"
+                );
 
                 // Second section move
                 this.secondMoveTimeline = new GSAP.timeline({
@@ -165,6 +153,7 @@ export default class Controls {
                 },"same",
                 ).to(this.room.position, {
                     x: 6,
+                    y: 3,
                     z: 9,
                 },"same",);
 
