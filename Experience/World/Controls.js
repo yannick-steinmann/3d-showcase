@@ -251,7 +251,7 @@ export default class Controls {
 
             // Circle Animation
             // First Circle Animation
-            this.firstMoveTimeline = new GSAP.timeline({
+            this.firstCircleTimeline = new GSAP.timeline({
                 scrollTrigger: {
                     trigger: ".first-move",
                     start: "top top",
@@ -265,7 +265,7 @@ export default class Controls {
                 z: 10,
             })
 
-            this.secondMoveTimeline = new GSAP.timeline({
+            this.secondCircleTimeline = new GSAP.timeline({
                 scrollTrigger: {
                     trigger: ".second-move",
                     start: "top top",
@@ -279,7 +279,7 @@ export default class Controls {
                 z: 10,
             })
 
-            this.thirdMoveTimeline = new GSAP.timeline({
+            this.thirdCircleTimeline = new GSAP.timeline({
                 scrollTrigger: {
                     trigger: ".third-move",
                     start: "top top",
