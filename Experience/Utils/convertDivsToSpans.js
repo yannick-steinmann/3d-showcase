@@ -1,7 +1,7 @@
 export default function (element) {
     element.style.overflow = "hidden";
 
-    if (element.className === "hero0-main-description") {
+    if (element.className === "hero0-main-description-one" || element.className === "hero0-main-description-two") {
         element.innerHTML = element.innerText
         .split("")
         .map((char) => {

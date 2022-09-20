@@ -129,12 +129,24 @@ export default class Controls {
                         scrub: 0.6,
                         invalidateOnRefresh: true,
                     },
-                }).to(this.room.scale, {
+                }).fromTo(this.room.scale, {
+                    x: 0.7,
+                    y: 0.7,
+                    z: 0.7,
+                }, {
                     x: 1,
                     y: 1,
                     z: 1,
                 }, "same"
-                ).to(this.room.position, {y:6,}, "same"
+                ).fromTo(this.room.position, {
+                    x: 0,
+                    y: 2,
+                    z: 0,
+                }, {
+                    x: 0,
+                    y: 6,
+                    z: 0,
+                }, "same"
                 );
 
                 // Second section move
@@ -175,7 +187,6 @@ export default class Controls {
                     x: 0,
                     z: 0,
                 },"same",);
-
             },
 
             // all

@@ -174,10 +174,22 @@ html, body{
   border-bottom-left-radius: 0px 0px;
 }
 
+.first-section a {
+  color: var(--color-primary);
+}
+
+.second-section a {
+  color: var(--color-secondary);
+}
+
+.third-section a {
+  color: var(--color-tertiary);
+}
+
 /* Progress bars --------------------------------*/
 .progress-wrapper {
   height: 0;
-  width: 12px;
+  width: 8px;
   z-index: 9999;
 }
 
@@ -215,7 +227,7 @@ html, body{
 }
 
 .section-heading {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
@@ -304,9 +316,10 @@ html, body{
 
 .hero0-main-title {
   font-size: 76px;
+  color: var(--color-primary);
 }
 
-.hero0-main-description {
+.hero0-main-description-one, .hero0-main-description-two {
   font-size: 28px;
 }
 
@@ -380,11 +393,11 @@ html, body{
   }
 
   .hero0-main-title {
-    font-size: 48px;
+    font-size: 46px;
   }
   
-  .hero0-main-description {
-    font-size: 22px;
+  .hero0-main-description-one, .hero0-main-description-two {
+    font-size: 16px;
   }
 
 

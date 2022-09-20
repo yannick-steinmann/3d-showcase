@@ -30,7 +30,8 @@ export default class Preloader extends EventEmitter {
     setAssets() {
         convert(document.querySelector(".intro-text"));
         convert(document.querySelector(".hero0-main-title"));
-        convert(document.querySelector(".hero0-main-description"));
+        convert(document.querySelector(".hero0-main-description-one"));
+        convert(document.querySelector(".hero0-main-description-two"));
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
 
@@ -82,7 +83,7 @@ export default class Preloader extends EventEmitter {
 
             this.firstTimeline.to(".intro-text .animated", {
                 yPercent: 0,
-                stagger: 0.05,
+                stagger: 0.04,
                 ease: "back.out(1.7)",
                 onComplete: resolve,
             }
@@ -99,8 +100,8 @@ export default class Preloader extends EventEmitter {
                 this.secondTimeline.to(".arrow-svg-wrapper", {opacity:0})
                 this.secondTimeline.to(".intro-text .animated", {
                     yPercent: 100,
-                    stagger: 0.05,
-                    ease: "back.in(1.2)",
+                    stagger: 0.04,
+                    ease: "back.in(1.5)",
                 }, "<"
                 ).to(this.room.position, {
                     x: 0,
@@ -179,7 +180,12 @@ export default class Preloader extends EventEmitter {
                     stagger: 0.05,
                     ease: "back.out(1.7)",
                 }, "<"
-                ).to(".hero0-main-description .animated2", {
+                ).to(".hero0-main-description-one .animated2", {
+                    yPercent: 0,
+                    stagger: 0.03,
+                    ease: "back.out(1)",
+                },
+                ).to(".hero0-main-description-two .animated2", {
                     yPercent: 0,
                     stagger: 0.03,
                     ease: "back.out(1)",
