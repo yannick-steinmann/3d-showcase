@@ -114,7 +114,7 @@ export default class Controls {
             },
 
             // Mobile
-            "(max-width: 968px": ()=> {
+            "(max-width: 968px)": ()=> {
                 
                 // Resets
                 this.room.scale.set(0.7,0.7,0.7);
