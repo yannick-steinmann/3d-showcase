@@ -18,6 +18,7 @@ export default class Controls {
         this.circleFirst = this.experience.world.floor.circleFirst;
         this.circleSecond = this.experience.world.floor.circleSecond;
         this.circleThird = this.experience.world.floor.circleThird;
+        this.circleFourth = this.experience.world.floor.circleFourth;
 
         GSAP.registerPlugin(ScrollTrigger);
 
@@ -66,19 +67,19 @@ export default class Controls {
                 });
                 this.secondMoveTimeline.to(this.room.position, {
                     x: () => {
-                        return 1;
+                        return this.sizes.width * 0.003;
                     },
                     z: () => {
-                        return this.sizes.height * 0.02;
+                        return this.sizes.height * 0.035;
                     },
 
                 },
                 "same", 
                 );
                 this.secondMoveTimeline.to(this.room.scale, {
-                    x: 3,
-                    y: 3,
-                    z: 3,
+                    x: 5,
+                    y: 5,
+                    z: 5,
                 },
                 "same", 
                 );
@@ -95,16 +96,42 @@ export default class Controls {
                 });
                 this.thirdMoveTimeline.to(this.room.position, {
                     x: () => {
-                        return this.sizes.width * 0.0065;
+                        return 1.1;
                     },
                     z: () => {
-                        return 1;
+                        return this.sizes.height * 0.02;
                     },
                 },
                 "same", 
                 );
 
                 this.thirdMoveTimeline.to(this.room.scale, {
+                    y: 3,
+                    z: 3,
+                    x: 3,
+                },
+                "same",
+                );
+
+                // Fourth section move
+                this.fourthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                });
+                this.fourthMoveTimeline.to(this.room.position, {
+                    x: () => {
+                        return -this.sizes.width * 0.0065;
+                    },
+                    y: 3,
+                    z: 0,
+                },
+                "same", 
+                ).to(this.room.scale, {
                     y: 1,
                     z: 1,
                     x: 1,
@@ -144,7 +171,7 @@ export default class Controls {
                     z: 0,
                 }, {
                     x: 0,
-                    y: 6,
+                    y: 5,
                     z: 0,
                 }, "same"
                 );
@@ -159,12 +186,12 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 }).to(this.room.scale, {
-                    x: 2.7,
-                    y: 2.7,
-                    z: 2.7,
+                    x: 3.3,
+                    y: 3.3,
+                    z: 3.3,
                 },"same",
                 ).to(this.room.position, {
-                    x: 6,
+                    x: 8,
                     y: 3,
                     z: 9,
                 },"same",);
@@ -179,12 +206,33 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 }).to(this.room.scale, {
-                    x: 0.6,
-                    y: 0.6,
-                    z: 0.6,
+                    x: 2.5,
+                    y: 2.5,
+                    z: 2.5,
+                },"same",
+                ).to(this.room.position, {
+                    x: -6,
+                    y: 3,
+                    z: 9,
+                },"same",);
+
+                // Fourth section move
+                this.fourthMoveTimeline = new GSAP.timeline({
+                    scrollTrigger: {
+                        trigger: ".fourth-move",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                        invalidateOnRefresh: true,
+                    },
+                }).to(this.room.scale, {
+                    x: 1,
+                    y: 1,
+                    z: 1,
                 },"same",
                 ).to(this.room.position, {
                     x: 0,
+                    y: 4,
                     z: 0,
                 },"same",);
             },
@@ -250,7 +298,6 @@ export default class Controls {
                 });
 
             // Circle Animation
-            // First Circle Animation
             this.firstCircleTimeline = new GSAP.timeline({
                 scrollTrigger: {
                     trigger: ".first-move",
@@ -288,6 +335,20 @@ export default class Controls {
                     invalidateOnRefresh: true,
                 },
             }).to(this.circleThird.scale, {
+                x: 10,
+                y: 10,
+                z: 10,
+            })
+
+            this.fourthCircleTimeline = new GSAP.timeline({
+                scrollTrigger: {
+                    trigger: ".fourth-move",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 0.6,
+                    invalidateOnRefresh: true,
+                },
+            }).to(this.circleFourth.scale, {
                 x: 10,
                 y: 10,
                 z: 10,

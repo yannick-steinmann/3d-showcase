@@ -115,46 +115,27 @@ export default class Preloader extends EventEmitter {
                     duration: 1,
                 }, "same"
                 )
-                
                 if(this.device === "desktop") {
                     this.secondTimeline.to(this.room.position, {x: 0,y: 0,z: 0,duration: 1,ease: "power1.out",}, "same")
                 } else {
                     this.secondTimeline.to(this.room.scale, {x:0.7,y:0.7,z:0.7, duration:1,},"same")
                     this.secondTimeline.to(this.room.position, {x: 0,y: 2,z: 0,duration: 1,ease: "power1.out",}, "same")
                 }
+                this.secondTimeline.to(this.roomChildren.cubeintro.scale, {x: 1,y: 1,z: 1,duration: 1,}, "same"
+                ).to(this.roomChildren.cubeintro.position, {y: 3.2189,duration: 1,}, "same"
+                ).to(this.camera.orthographicCamera.position, {y: 10,duration: 1,}, "same"
 
-                this.secondTimeline.to(this.roomChildren.cubeintro.scale, {
-                    x: 1,
-                    y: 1,
-                    z: 1,
-                    duration: 1,
-                }, "same"
-                ).to(this.roomChildren.cubeintro.position, {
-                    y: 3.2189,
-                    duration: 1,
-                }, "same"
-                ).to(this.camera.orthographicCamera.position, {
-                    y: 10,
-                    duration: 1,
-                }, "same"
-
-                ).to(this.roomChildren.cubeintro.scale, {
-                    x: 0,
-                    y: 0,
-                    z: 0, 
-                    ease: "power1.out",
-                    duration: 0.5,
-                }, "second"
-                ).to(this.roomChildren.walls.scale, {
-                    x: 1,
-                    y: 1,
-                    z: 1, 
-                    ease: "power1.out",
-                    duration: 0.3,
-                }, "second"
+                ).to(this.roomChildren.cubeintro.scale, {x: 0,y: 0,z: 0,ease: "power1.out",duration: 0.5,}, "second"
+                ).to(this.roomChildren.walls.scale, {x: 1,y: 1,z: 1,ease: "power1.out",duration: 0.3,}, "second"
                 ).to(this.roomChildren.floor.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.3,}, "second"
+
+                ).to(this.roomChildren.backpack.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.bike.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.book.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.book001.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.book002.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.book003.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.book004.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.chair.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.clock.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.couch.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
@@ -169,11 +150,16 @@ export default class Preloader extends EventEmitter {
                 ).to(this.roomChildren.laptop.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.map.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.phone.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
-                ).to(this.roomChildren.plate.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
-                ).to(this.roomChildren.pot.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.plant.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.plant2.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.plant3.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.rug.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.sticky1.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.sticky2.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.sticky3.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.sticky4.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
+                ).to(this.roomChildren.sticky.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.table.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
-                ).to(this.roomChildren.walls.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(this.roomChildren.window.scale, {x:1,y:1,z:1,ease:"power1.out",duration: 0.7,}, "second+=0.3"
                 ).to(".hero0-main-title .animated", {
                     yPercent: 0,

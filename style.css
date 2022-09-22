@@ -186,6 +186,45 @@ html, body{
   color: var(--color-tertiary);
 }
 
+.fourth-section a {
+  color: var(--color-primary);
+}
+
+
+.section-intro-wrapper {
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 400px;
+}
+ 
+.section-detail-wrapper {
+  position: relative;
+  padding: 20% 5%;
+  padding-bottom: 400px;
+}
+
+.last-section {
+  padding-bottom: 100px;
+}
+
+.section-heading {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.8;
+  margin-top: 64px;
+}
+
+.section-text {
+  line-height: 2;
+  margin-top: 18px;
+  font-size: 16px;
+}
+
+.footer-margin {
+  margin-top: 192px;
+}
+
 /* Progress bars --------------------------------*/
 .progress-wrapper {
   height: 0;
@@ -211,32 +250,6 @@ html, body{
   background-color: var(--color-primary);
   transform-origin: top center;
   transform: scaleY(1);
-}
-
-.section-intro-wrapper {
-  position: relative;
-  padding: 20% 5%;
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 400px;
-}
- 
-.section-detail-wrapper {
-  position: relative;
-  padding: 20% 5%;
-  padding-bottom: 400px;
-}
-
-.section-heading {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.8;
-  margin-top: 64px;
-}
-
-.section-text {
-  line-height: 2;
-  margin-top: 18px;
-  font-size: 16px;
 }
 
 /* Fancy Decoration Part of Section */

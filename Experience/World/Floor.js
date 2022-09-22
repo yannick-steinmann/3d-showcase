@@ -37,19 +37,21 @@ export default class Floor {
         this.circleFirst = new THREE.Mesh(geometry, material);
         this.circleSecond = new THREE.Mesh(geometry, material2);
         this.circleThird = new THREE.Mesh(geometry, material3);
+        this.circleFourth = new THREE.Mesh(geometry, material);
         
-        this.circleFirst.position.y = -1.99;
-        this.circleSecond.position.y = -1.98;
-        this.circleSecond.position.x = 5;
-        this.circleThird.position.y = -1.97;
+        this.circleFirst.position.y = 0; // -1.99
+        this.circleSecond.position.y = 0.97;
+        this.circleThird.position.y = 0.98;
+        this.circleFourth.position.y = 0.99;
 
         this.circleFirst.scale.set(0,0,0);
         this.circleSecond.scale.set(0,0,0);
         this.circleThird.scale.set(0,0,0);
+        this.circleFourth.scale.set(0,0,0);
 
-        this.circleFirst.rotation.x = this.circleSecond.rotation.x = this.circleThird.rotation.x = -Math.PI / 2;
+        this.circleFirst.rotation.x = this.circleSecond.rotation.x = this.circleThird.rotation.x = this.circleFourth.rotation.x = -Math.PI / 2;
         
-        this.scene.add(this.circleFirst, this.circleSecond, this.circleThird);
+        this.scene.add(this.circleFirst, this.circleSecond, this.circleThird, this.circleFourth);
     }
 
     resize(){

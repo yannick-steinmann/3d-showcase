@@ -43,7 +43,6 @@ export default class Resources extends EventEmitter {
                     (file) => {
                         this.singleAssetLoaded(asset, file)
                     });
-
             }
             else if (asset.type === "videoTexture") {
                 this.video = {};
