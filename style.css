@@ -209,7 +209,7 @@ html, body{
 }
 
 .section-heading {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
@@ -218,11 +218,25 @@ html, body{
 .section-text {
   line-height: 2;
   margin-top: 18px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .footer-margin {
   margin-top: 192px;
+}
+.image-wrapper {
+  position: relative;
+  margin-top: 40px;
+  transition: transform .2s
+}
+
+.image-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.section-image {
+  position: relative;
+  width: 70%;
 }
 
 /* Progress bars --------------------------------*/
@@ -306,7 +320,7 @@ html, body{
   /* margin-top: auto; */
 }
 
-/* Hero Section --------------------------------*/
+/*  Section --------------------------------*/
 .hero {
   width: 100vw;
   height: 100vh;
@@ -321,7 +335,7 @@ html, body{
 }
 
 .hero0-main {
-  position: absolute;
+  position: relative;
   top: 80px;
   margin: auto;
   text-align: center;
@@ -332,31 +346,8 @@ html, body{
   color: var(--color-primary);
 }
 
-.hero0-main-description-one, .hero0-main-description-two {
+.hero0-main-description, .hero0-main-description-one, .hero0-main-description-two {
   font-size: 28px;
-}
-
-/* Original Hero ---------------*/
-
-.hero-wrapper {
-  position: relative;
-  height: 100vh;
-  width: 600px;
-  margin: 0 auto;
-  max-width: 1100px;
-}
-
-.hero-main {
-  position: absolute;
-  top: 120px;
-  left: 0;
-  right:0;
-  margin: auto;
-  text-align: center;
-}
-
-.hero-main-title {
-  font-size: 48px;
 }
 
 /* Other colors override --------------------------------*/
@@ -399,6 +390,7 @@ html, body{
 
   .hero0-wrapper {
     width:95%;
+    max-width: 560px;
   }
 
   .hero0-main {
@@ -409,8 +401,8 @@ html, body{
     font-size: 46px;
   }
   
-  .hero0-main-description-one, .hero0-main-description-two {
-    font-size: 16px;
+  .hero0-main-description, .hero0-main-description-one, .hero0-main-description-two {
+    font-size: 22px;
   }
 
 

@@ -70,16 +70,16 @@ export default class Controls {
                         return this.sizes.width * 0.003;
                     },
                     z: () => {
-                        return this.sizes.height * 0.035;
+                        return this.sizes.height * 0.033;
                     },
 
                 },
                 "same", 
                 );
                 this.secondMoveTimeline.to(this.room.scale, {
-                    x: 5,
-                    y: 5,
-                    z: 5,
+                    x: 4,
+                    y: 4,
+                    z: 4,
                 },
                 "same", 
                 );

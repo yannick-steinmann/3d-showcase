@@ -7,12 +7,12 @@ export default [
     {
         name: "cubeTexture",
         type: "texture",
-        path: "/textures/bakedcube.jpg"
+        path: "/textures/bakedcube2.png"
     },
     {
         name: "wallTexture",
         type: "texture",
-        path: "/textures/baked005.jpg"
+        path: "/textures/baked005-rendered.jpg"
     },
     {
         name: "roomTexture",
@@ -23,7 +23,7 @@ export default [
     {
         name: "laptopTexture",
         type: "videoTexture",
-        path: "/textures/laptopscreen.mp4"
+        path: "/textures/laptopscreen3.mp4"
     },
     
     {

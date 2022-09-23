@@ -39,6 +39,16 @@ export default class Room {
         this.textures.roomColor.flipY = false;
         this.textures.roomColor.encoding = THREE.sRGBEncoding;
 
+
+        this.textures.laptopTexture = this.resources.items.laptopTexture;
+        this.textures.laptopTexture.rotation = -Math.PI * 0.5;
+        this.textures.laptopTexture.center.x = 0.5;
+        this.textures.laptopTexture.center.y = 0.5;
+        this.textures.laptopTexture.flipY = false;
+        //this.textures.laptopTexture.encoding = THREE.sRGBEncoding;
+
+
+
         
 
         console.log(this.textures);
@@ -89,17 +99,18 @@ export default class Room {
                 child.material = this.materialCube;
                 //child.scale.set(1,1,1);
                 child.position.set(0,7,0); // cube is centered in room at position.set(0,4.5,0)
+                child.rotation.y =  -Math.PI;
             }
 
-            if (child.name === "map") {
-                child.children[0].material = new THREE.MeshBasicMaterial({
-                    map: this.resources.items.screen
-                })
-            }
+            // if (child.name === "map") {
+            //     child.children[0].material = new THREE.MeshBasicMaterial({
+            //         map: this.resources.items.screen
+            //     })
+            // }
 
             if (child.name === "laptop") {
                 child.children[1].material = new THREE.MeshBasicMaterial({
-                    map: this.resources.items.laptopTexture
+                    map: this.textures.laptopTexture,
                 })
             }
             
