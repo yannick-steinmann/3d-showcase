@@ -35,11 +35,6 @@ export default class Room {
         this.textures.wallTexture.flipY = false;
         this.textures.wallTexture.encoding = THREE.sRGBEncoding;
 
-        this.textures.roomColor = this.resources.items.roomTexture;
-        this.textures.roomColor.flipY = false;
-        this.textures.roomColor.encoding = THREE.sRGBEncoding;
-
-
         this.textures.laptopTexture = this.resources.items.laptopTexture;
         this.textures.laptopTexture.rotation = -Math.PI * 0.5;
         this.textures.laptopTexture.center.x = 0.5;
@@ -64,9 +59,6 @@ export default class Room {
         this.materialWall = new THREE.MeshBasicMaterial({
             map: this.textures.wallTexture
         });   
-        this.material = new THREE.MeshBasicMaterial({
-            map: this.textures.roomColor
-        });      
     }
  
     setModel() {

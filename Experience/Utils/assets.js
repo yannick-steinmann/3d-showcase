@@ -14,21 +14,10 @@ export default [
         type: "texture",
         path: "/textures/baked005-rendered.jpg"
     },
-    {
-        name: "roomTexture",
-        type: "texture",
-        path: "/textures/baked.jpg"
-    },
     
     {
         name: "laptopTexture",
         type: "videoTexture",
-        path: "/textures/laptopscreen3.mp4"
+        path: "/textures/laptopscreen5.mp4"
     },
-    
-    {
-        name: "screen",
-        type: "videoTexture",
-        path: "/textures/anvil.mp4"
-    }
 ]
