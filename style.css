@@ -226,10 +226,26 @@ html, body{
 .footer-margin {
   margin-top: 192px;
 }
+
+.video-wrapper {
+  position: relative;
+  margin-top: 40px;
+  transition: transform .2s;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.section-video {
+  position: relative;
+  width: 70%;
+}
+
 .image-wrapper {
   position: relative;
   margin-top: 40px;
-  transition: transform .2s
+  transition: transform .2s;
 }
 
 .image-wrapper:hover {
