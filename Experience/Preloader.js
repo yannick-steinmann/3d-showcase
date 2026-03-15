@@ -81,7 +81,7 @@ export default class Preloader extends EventEmitter {
                 ease: "back.out(2)",
             })
             // Brief pause to let the text land
-            .to({}, { duration: 1.2, onComplete: resolve })
+            .to({}, { duration: 0.5, onComplete: resolve })
             ;
         })
     }
@@ -175,9 +175,10 @@ export default class Preloader extends EventEmitter {
     }
 
     async playFullIntro() {
-        // Phase 1: preloader fades, cube appears, intro text reveals, holds briefly
-        this.moveFlag = true;
+        // Phase 1: preloader fades, cube appears center then slides aside, intro text reveals
         await this.firstIntro();
+        // Pin room to side position during the brief transition
+        this.moveFlag = true;
 
         // Phase 2: auto-transition to room build + title reveal (no user interaction needed)
         this.moveFlag = false;
