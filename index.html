@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <title>Yannick Steinmann - 3D Portfolio</title>
+    <style>
+      /* Critical inline styles to prevent FOUC */
+      html, body { margin: 0; padding: 0; background: #191919; color: #E8E8E8; }
+      .page { visibility: hidden; }
+      .preloader { background-color: #000; width: 100%; height: 100vh; position: fixed; z-index: 9999999999999; }
+    </style>
   </head>
   <body>
     <div class="custom-cursor"></div>
@@ -38,7 +44,7 @@
         <section class="hero">
           <div class="hero0-wrapper">
             <!-- Intro  Stuff -->
-            <div class="intro-text">Yannick Steinmann</div>
+            <div class="intro-text">Hello.</div>
             <div class="arrow-svg-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40">
                 <path

@@ -1,6 +1,9 @@
 import './style.css'
 import Experience from './Experience/Experience.js'
 
+// Reveal page once styles are loaded (prevents FOUC)
+document.querySelector('.page').style.visibility = 'visible';
+
 const experience = new Experience(document.querySelector(".experience-canvas"))
 
 // Custom cursor (desktop only)

@@ -22,7 +22,7 @@ export default class Preloader extends EventEmitter {
 
         this.world.on("worldready", ()=> {
             this.setAssets();
-            this.playFirstIntro();
+            this.playFullIntro();
         })
     }
 
@@ -31,7 +31,6 @@ export default class Preloader extends EventEmitter {
         convert(document.querySelector(".hero0-main-title"));
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
-
     }
 
     firstIntro() {
@@ -58,7 +57,6 @@ export default class Preloader extends EventEmitter {
                     x: -5.5,
                     ease: "power1.out",
                     duration: 0.7,
-                    onComplete: resolve,
                 })
             } else {
                 this.firstTimeline.to(this.roomChildren.cubeintro.scale, {
@@ -73,21 +71,17 @@ export default class Preloader extends EventEmitter {
                     z: -7,
                     ease: "power1.out",
                     duration: 0.7,
-                    onComplete: resolve,
                 })
             }
 
+            // Show intro text, hold for a beat, then resolve
             this.firstTimeline.to(".intro-text .animated", {
                 yPercent: 0,
                 stagger: 0.03,
                 ease: "back.out(2)",
-                onComplete: resolve,
-            }
-            ).to(".arrow-svg-wrapper", {
-                opacity:1,
-                onStart: () => document.querySelector(".arrow-svg-wrapper").classList.add("visible"),
-                onComplete: resolve,
             })
+            // Brief pause to let the text land
+            .to({}, { duration: 1.2, onComplete: resolve })
             ;
         })
     }
@@ -97,15 +91,12 @@ export default class Preloader extends EventEmitter {
 
             this.secondTimeline = new GSAP.timeline();
 
-                this.secondTimeline.to(".arrow-svg-wrapper", {
-                    opacity: 0,
-                    onComplete: () => document.querySelector(".arrow-svg-wrapper").classList.remove("visible"),
-                })
+                // Fade out intro text (no arrow to deal with anymore)
                 this.secondTimeline.to(".intro-text .animated", {
                     yPercent: 100,
                     stagger: 0.03,
                     ease: "back.in(2)",
-                }, "<"
+                }
                 ).to(this.room.position, {
                     x: 0,
                     y: 0,
@@ -175,49 +166,20 @@ export default class Preloader extends EventEmitter {
                     ease: "back.out(1)",
                     onComplete:resolve,
                 },
-                ).to(".arrow-svg-wrapper", {opacity:1})
+                ).to(".arrow-svg-wrapper", {
+                    opacity:1,
+                    onStart: () => document.querySelector(".arrow-svg-wrapper").classList.add("visible"),
+                })
                 ;
         });
     }
 
-    onScroll(e) {
-        this.removeEventListeners()
-        this.playSecondIntro();
-    }
-
-    onTouch(e) {
-        this.initialY = e.touches[0].clientY;
-    }
-
-    onTouchMove(e) {
-        let currentY = e.touches[0].clientY;
-        let difference = this.initialY - currentY;
-        if (difference > 0) {
-            this.removeEventListeners()
-            this.playSecondIntro();
-        }
-        this.initialY = null;
-    }
-
-    removeEventListeners(){
-        window.removeEventListener("wheel", this.scrollOnceEvent);
-        window.removeEventListener("touchstart", this.touchStart);
-        window.removeEventListener("touchmove", this.touchMove);
-    }
-
-    async playFirstIntro() {
-        await this.firstIntro();
+    async playFullIntro() {
+        // Phase 1: preloader fades, cube appears, intro text reveals, holds briefly
         this.moveFlag = true;
-        this.scrollOnceEvent = this.onScroll.bind(this);
-        this.touchStart = this.onTouch.bind(this);
-        this.touchMove = this.onTouchMove.bind(this);
-        window.addEventListener("wheel", this.scrollOnceEvent);
-        window.addEventListener("touchstart", this.touchStart);
-        window.addEventListener("touchmove", this.touchMove);
+        await this.firstIntro();
 
-    };
-
-    async playSecondIntro() {
+        // Phase 2: auto-transition to room build + title reveal (no user interaction needed)
         this.moveFlag = false;
         this.scaleFlag = true;
         await this.secondIntro();
