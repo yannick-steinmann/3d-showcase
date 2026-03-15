@@ -11,6 +11,19 @@ html, body{
   color: var(--color-text);
 }
 
+::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+a {
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
 /* body {
   overflow: hidden;
 } */

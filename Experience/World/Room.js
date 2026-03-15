@@ -46,7 +46,6 @@ export default class Room {
 
         
 
-        console.log(this.textures);
     }
 
 
@@ -112,7 +111,6 @@ export default class Room {
         
         this.actualRoom.rotation.y = - Math.PI / 4;
 
-        console.log(this.actualRoom)
 
         this.scene.add(this.actualRoom);
     }

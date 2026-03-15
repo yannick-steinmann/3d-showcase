@@ -1,7 +1,6 @@
 import { EventEmitter } from "events";
 import Experience from "./Experience";
 import GSAP from "gsap";
-import { CubeCamera } from "three";
 import convert from "./Utils/convertDivsToSpans.js";
 
 
@@ -33,7 +32,6 @@ export default class Preloader extends EventEmitter {
         this.room = this.experience.world.room.actualRoom;
         this.roomChildren = this.experience.world.room.roomChildren;
 
-        console.log(this.roomChildren);
     }
 
     firstIntro() {
@@ -176,7 +174,6 @@ export default class Preloader extends EventEmitter {
     }
 
     onScroll(e) {
-        console.log("mouse wheel");
         this.removeEventListeners()
         this.playSecondIntro();
     }
@@ -189,7 +186,6 @@ export default class Preloader extends EventEmitter {
         let currentY = e.touches[0].clientY;
         let difference = this.initialY - currentY;
         if (difference > 0) {
-            console.log("swiped up");
             this.removeEventListeners()
             this.playSecondIntro();
         }
