@@ -241,8 +241,8 @@ export default class Controls {
             all: () => {
                 this.sections = document.querySelectorAll(".section");
                 this.sections.forEach(section=>{
-                    this.progressWrapper = section.querySelector(".progress-wrapper");
-                    this.progressBar = section.querySelector(".progress-bar");
+                    const progressWrapper = section.querySelector(".progress-wrapper");
+                    const progressBar = section.querySelector(".progress-bar");
 
                     if(section.classList.contains("right")) {
                         GSAP.to(section, {
@@ -284,14 +284,14 @@ export default class Controls {
                         });
                     }
 
-                    GSAP.from(this.progressBar, {
+                    GSAP.from(progressBar, {
                         scaleY: 0,
                         scrollTrigger: {
                             trigger: section,
                             start: "top top",
                             end: "bottom bottom",
                             scrub: 0.4,
-                            pin: this.progressWrapper,
+                            pin: progressWrapper,
                             pinSpacing: false,
                         }
                     })

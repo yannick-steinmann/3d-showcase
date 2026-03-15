@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Yannick Steinmann — Product Manager, builder, and creative technologist. An interactive 3D experience built with Three.js, GSAP, and Blender." />
+    <meta name="theme-color" content="#191919" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <title>Yannick Steinmann - 3D Portfolio</title>
   </head>
   <body>
+    <div class="custom-cursor"></div>
+    <div class="scroll-progress">
+      <div class="scroll-progress-bar"></div>
+    </div>
+
     <div class="experience">
       <canvas class="experience-canvas"></canvas>
     </div>
 
-    <!-- Preloader  -->
+    <!-- Preloader -->
     <div class="preloader">
       <div class="preloader-wrapper">
         <div class="loading">
@@ -20,6 +29,7 @@
           <div class="circle"></div>
           <div class="circle"></div>
         </div>
+        <div class="loading-progress">Loading...</div>
       </div>
     </div>
 
@@ -28,7 +38,7 @@
         <section class="hero">
           <div class="hero0-wrapper">
             <!-- Intro  Stuff -->
-            <div class="intro-text">Welcome to my 3D portfolio!</div>
+            <div class="intro-text">Yannick Steinmann</div>
             <div class="arrow-svg-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40">
                 <path
@@ -164,7 +174,7 @@
             </p>
             <div class="image-wrapper">
               <a href="https://www.slideshare.net/YannickSteinmann/clubhouse-viral-growth-lessons">
-                <img src="/images/clubhouse.jpg" class="section-image" alt="">
+                <img src="/images/clubhouse.jpg" class="section-image" alt="Clubhouse viral growth case study">
               </a>
             </div>
 
@@ -206,7 +216,7 @@
             </p>
             <p class="section-text">Bolzano, Italy:</p>
             <div class="image-wrapper">
-                <img src="/images/bolzano.jpg" class="section-image" alt="">
+                <img src="/images/bolzano.jpg" class="section-image" alt="Bike tour in Bolzano, Italy">
             </div>
             <h3 class="section-heading">Making things</h3>
             <p class="section-text">

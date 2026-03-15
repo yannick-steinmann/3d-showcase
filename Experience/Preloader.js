@@ -83,7 +83,11 @@ export default class Preloader extends EventEmitter {
                 ease: "back.out(2)",
                 onComplete: resolve,
             }
-            ).to(".arrow-svg-wrapper", {opacity:1})
+            ).to(".arrow-svg-wrapper", {
+                opacity:1,
+                onStart: () => document.querySelector(".arrow-svg-wrapper").classList.add("visible"),
+                onComplete: resolve,
+            })
             ;
         })
     }
@@ -93,7 +97,10 @@ export default class Preloader extends EventEmitter {
 
             this.secondTimeline = new GSAP.timeline();
 
-                this.secondTimeline.to(".arrow-svg-wrapper", {opacity:0})
+                this.secondTimeline.to(".arrow-svg-wrapper", {
+                    opacity: 0,
+                    onComplete: () => document.querySelector(".arrow-svg-wrapper").classList.remove("visible"),
+                })
                 this.secondTimeline.to(".intro-text .animated", {
                     yPercent: 100,
                     stagger: 0.03,

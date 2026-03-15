@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -24,24 +22,10 @@ a:hover {
   opacity: 0.8;
 }
 
-/* body {
-  overflow: hidden;
-} */
-
-/* :root {
-  --color-text: #333332;
-  --color-background: #FAF4E5;
-  --color-primary: #9CDE4E;
-  --color-secondary: #E5A1AA;
-  --color-tertiary: #8395CD;
-} */
-
 :root {
   --color-text: #E8E8E8;
   --color-background: #191919;
-  /* --color-primary: #9CDE4E; */
   --color-primary: #FCB017;
-
   --color-secondary: #E5A1AA;
   --color-tertiary: #8395CD;
 }
@@ -59,7 +43,7 @@ a:hover {
 }
 
 .hidden {
-  display: none; 
+  display: none;
 }
 
 /* Preloader --------------------------------*/
@@ -76,6 +60,8 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 24px;
   width: 100%;
   height: 100%;
 }
@@ -84,6 +70,14 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loading-progress {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
 }
 
 .circle {
@@ -108,7 +102,44 @@ a:hover {
   40% {transform: translateY(0)}
 }
 
+/* Scroll Progress Indicator --------------------------------*/
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 99999999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-tertiary));
+  transition: width 0.1s ease-out;
+}
+
+/* Custom Cursor --------------------------------*/
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999999;
+  transition: transform 0.15s ease-out, border-color 0.3s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hovering {
+  transform: translate(-50%, -50%) scale(2);
+  border-color: var(--color-secondary);
+}
 
 /* Page Itself --------------------------------*/
 .page {
@@ -150,6 +181,11 @@ a:hover {
   left: calc(50% - 20px);
   opacity: 0;
   animation: bounce 0.5s ease-in alternate infinite;
+  animation-play-state: paused;
+}
+
+.arrow-svg-wrapper.visible {
+  animation-play-state: running;
 }
 
 @keyframes bounce {
@@ -212,7 +248,7 @@ a:hover {
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 400px;
 }
- 
+
 .section-detail-wrapper {
   position: relative;
   padding: 20% 5%;
@@ -236,6 +272,24 @@ a:hover {
   font-size: 18px;
 }
 
+/* Section reveal animation --------------------------------*/
+.section-heading,
+.section-text,
+.image-wrapper,
+.video-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-heading.revealed,
+.section-text.revealed,
+.image-wrapper.revealed,
+.video-wrapper.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .footer-margin {
   margin-top: 192px;
 }
@@ -243,10 +297,13 @@ a:hover {
 .video-wrapper {
   position: relative;
   margin-top: 40px;
-  transition: transform .2s;
 }
 
 .video-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.video-wrapper.revealed:hover {
   transform: scale(1.05);
 }
 
@@ -258,16 +315,20 @@ a:hover {
 .image-wrapper {
   position: relative;
   margin-top: 40px;
-  transition: transform .2s;
 }
 
 .image-wrapper:hover {
   transform: scale(1.05);
 }
 
+.image-wrapper.revealed:hover {
+  transform: scale(1.05);
+}
+
 .section-image {
   position: relative;
   width: 70%;
+  border-radius: 8px;
 }
 
 /* Progress bars --------------------------------*/
@@ -300,7 +361,7 @@ a:hover {
 /* Fancy Decoration Part of Section */
 .section-title {
   position: relative;
-  color: var(--color-primary)
+  color: var(--color-primary);
 }
 
 .section-title-text {
@@ -324,8 +385,6 @@ a:hover {
   border: 1px solid var(--color-primary);
   transform-origin: left;
   transform: skewY(-25deg);
-
-
 }
 
 .styleOne {
@@ -348,10 +407,9 @@ a:hover {
   right: 0px;
   color: var(--color-primary);
   font-size: 24px;
-  /* margin-top: auto; */
 }
 
-/*  Section --------------------------------*/
+/*  Hero Section --------------------------------*/
 .hero {
   width: 100vw;
   height: 100vh;
@@ -381,7 +439,19 @@ a:hover {
   font-size: 28px;
 }
 
-/* Other colors override --------------------------------*/
+/* Color utilities --------------------------------*/
+.primary-color-text {
+  color: var(--color-primary);
+}
+
+.primary-color-border {
+  border-color: var(--color-primary);
+}
+
+.primary-color-background {
+  background-color: var(--color-primary);
+}
+
 .secondary-color-text {
   color: var(--color-secondary);
 }
@@ -405,7 +475,6 @@ a:hover {
 .tertiary-color-background {
   background-color: var(--color-tertiary);
 }
-
 
 /* Media Queries --------------------------------*/
 @media (max-width: 968px) {
@@ -431,10 +500,12 @@ a:hover {
   .hero0-main-title {
     font-size: 46px;
   }
-  
+
   .hero0-main-description, .hero0-main-description-one, .hero0-main-description-two {
     font-size: 22px;
   }
 
-
+  .custom-cursor {
+    display: none;
+  }
 }
